@@ -30,14 +30,20 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-	<!-- Full Calendar JavaScript -->
-	<script src="js/fullcalendar.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	
+	<!-- CSS Files -->
+	<link type="text/css" href="css/base.css" rel="stylesheet" />
+	<link type="text/css" href="css/Sunburst.css" rel="stylesheet" />
+
+	<!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+
+	<!-- JIT Library File -->
+	<script language="javascript" type="text/javascript" src="js/jit.js"></script>
+
+	<!-- Example File -->
+	<script language="javascript" type="text/javascript" src="js/example2.js"></script>
+
+
 	<style>
 		.container-top {
 			margin-top: 80px;
@@ -66,7 +72,7 @@
 	</style>
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="init();">
 
     <!-- Navigation -->
     <!--<nav class="navbar navbar-custom navbar-fixed-top transparent" role="navigation">-->
@@ -141,12 +147,22 @@
 		<div class="intro-body1">
 			<div class="container">
 				<div class="well well-small transparent">
-					<div id="parkingLotDivId" style="background:transparent; background-color:rgba(0, 0, 0, 0.5); height:500px; text-align:center; padding-top:15px;color:white !important;">
+					<div id="parkingLotDivId" style="background:transparent; background-color:rgba(0, 0, 0, 0.5); height:500px; text-align:center; padding-top:15px;color:white !important;" class="col-md-12">
 						<h3>Book Your Seat</h3>
-						<span style="float:left; width:55%">
-						<img src="./img/New-Transparent.png" style="border-radius: 5px; width:100%">
-						</span>
-						<span style="float:left; width:40%; margin-left:15px;opacity: 1.0;">
+						<div  class="col-md-8">
+							<div style="text-align:center;"><a href="../js/example2.js">See the Example Code</a></div>            
+
+							<div id="center-container">
+								<div id="infovis"></div>    
+							</div>
+
+							<div id="right-container">
+
+							<div id="inner-details"></div>
+							</div>
+						</div>	
+						
+						<div  class="col-md-4 transparent">
 							<div class="thumbnail" style="background:transparent; min-height:250px;text-align:left; ">	
 								<form role="form" style="margin-top:15px !important">
 									<div class="form-group" style="margin-left:5px !important">
@@ -213,7 +229,7 @@
 								</form>
 
 							</div>
-						</span>
+						</div>
 
 					</div>
 				</div>	
@@ -234,96 +250,9 @@
     </footer>
 
     
-
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
-	<script>
-		$(document).ready(function() { 
-			$('#bootstrapModalFullCalendar').fullCalendar({
-				header: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				defaultDate: '2014-11-12',
-				editable: true,
-				eventLimit: true, // allow "more" link when too many events
-				events: [
-					{
-						title: 'All Day Event',
-						start: '2014-11-01',
-						description: "Desc1"
-						
-					},
-					{
-						title: 'Long Event',
-						start: '2014-11-07',
-						end: '2014-11-10',
-						description: "Desc1"
-						
-					},
-					{
-						id: 999,
-						title: 'Repeating Event',
-						start: '2014-11-09T16:00:00',
-						description: "Desc1"
-					},
-					{
-						id: 999,
-						title: 'Repeating Event',
-						start: '2014-11-16T16:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Conference',
-						start: '2014-11-11',
-						end: '2014-11-13',
-						description: "Desc1"
-					},
-					{
-						title: 'Meeting',
-						start: '2014-11-12T10:30:00',
-						end: '2014-11-12T12:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Lunch',
-						start: '2014-11-12T12:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Meeting',
-						start: '2014-11-12T14:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Happy Hour',
-						start: '2014-11-12T17:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Dinner',
-						start: '2014-11-12T20:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Birthday Party',
-						start: '2014-11-13T07:00:00',
-						description: "Desc1"
-					}
-				],	
-				eventClick:  function(event, jsEvent, view) {
-					$('#modalTitle').html(event.title);
-					$('#modalBody').html(event.description);
-					$('#eventUrl').attr('href',event.url);
-					$('#fullCalModal').modal();
-				}
-			});
-		});
-	</script>
+	
 	<div id="fullCalModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
