@@ -1,0 +1,105 @@
+Delete: "D:\Program Files\SQLyog\sqlyoghelp\*.*"
+Delete: "D:\Program Files\SQLyog\*.mht"
+Delete: "D:\Program Files\SQLyog\sja-sample3.xml"
+Delete: "D:\Program Files\SQLyog\sja-sample1.xml"
+Delete: "D:\Program Files\SQLyog\sja-sample2.xml"
+Delete: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Sample Schema#1.lnk"
+Delete: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Sample Schema#2.lnk"
+Delete: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Sample Schema#3.lnk"
+Delete: "D:\Program Files\SQLyog\SJASchemas\datasync-alltables.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\datasync-seltables.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\exportjob-alltables.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\exportjob-seltables.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\notification.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\odbcimport-general.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\odbcimport-withtrigger.xml"
+Delete: "D:\Program Files\SQLyog\SJASchemas\odbcimport-withwhere.xml"
+Delete: "D:\Program Files\SQLyog\*.txt"
+Delete: "D:\Program Files\SQLyog\*.dll"
+Delete: "D:\Program Files\SQLyog\SQLyogHelp.html"
+RMDir: "D:\Program Files\SQLyog\sqlyoghelp"
+Delete: "D:\Program Files\SQLyog\*.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="SQLyog.exe"
+File: wrote 1909248 to "D:\Program Files\SQLyog\SQLyog.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="SQLyogTunnel.php"
+File: wrote 24624 to "D:\Program Files\SQLyog\SQLyogTunnel.php"
+File: overwriteflag=0, allowskipfilesflag=2, name="plink.exe"
+File: wrote 294912 to "D:\Program Files\SQLyog\plink.exe"
+File: overwriteflag=0, allowskipfilesflag=2, name="Keywords.db"
+File: wrote 55296 to "D:\Program Files\SQLyog\Keywords.db"
+Call: 292
+File: overwriteflag=1, allowskipfilesflag=2, name="C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\GetVersion.dll"
+File: wrote 4096 to "C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\GetVersion.dll"
+CreateDirectory: "D:\Program Files\SQLyog\SJASchemas" (0)
+CreateDirectory: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog" (0)
+CreateDirectory: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas" (0)
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SQLyog.lnk", in: "D:\Program Files\SQLyog\SQLyog.exe ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SQLyog HTTP Tunneler.lnk", in: "D:\Program Files\SQLyog\SQLyogTunnel.php ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Desktop\SQLyog.lnk", in: "D:\Program Files\SQLyog\SQLyog.exe ", icon: ,0, sw=0, hk=0
+CreateDirectory: "D:\Program Files\SQLyog\SJASchemas" (1)
+File: overwriteflag=3, allowskipfilesflag=2, name="datasync-alltables.xml"
+File: wrote 410 to "D:\Program Files\SQLyog\SJASchemas\datasync-alltables.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="datasync-seltables.xml"
+File: wrote 823 to "D:\Program Files\SQLyog\SJASchemas\datasync-seltables.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="exportjob-alltables.xml"
+File: wrote 800 to "D:\Program Files\SQLyog\SJASchemas\exportjob-alltables.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="exportjob-seltables.xml"
+File: wrote 936 to "D:\Program Files\SQLyog\SJASchemas\exportjob-seltables.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="notification.xml"
+File: wrote 744 to "D:\Program Files\SQLyog\SJASchemas\notification.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="odbcimport-general.xml"
+File: wrote 5828 to "D:\Program Files\SQLyog\SJASchemas\odbcimport-general.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="odbcimport-withtrigger.xml"
+File: wrote 5867 to "D:\Program Files\SQLyog\SJASchemas\odbcimport-withtrigger.xml"
+File: overwriteflag=3, allowskipfilesflag=2, name="odbcimport-withwhere.xml"
+File: wrote 5877 to "D:\Program Files\SQLyog\SJASchemas\odbcimport-withwhere.xml"
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\Data Sync - All Tables.lnk", in: "D:\Program Files\SQLyog\SJASchemas\datasync-alltables.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\Data Sync - Selected Table(s).lnk", in: "D:\Program Files\SQLyog\SJASchemas\datasync-seltables.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\Notification Services.lnk", in: "D:\Program Files\SQLyog\SJASchemas\notification.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\Scheduled Export - All Tables.lnk", in: "D:\Program Files\SQLyog\SJASchemas\exportjob-alltables.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\Scheduled Export - Selected Tables.lnk", in: "D:\Program Files\SQLyog\SJASchemas\exportjob-seltables.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\ODBC Import - General.lnk", in: "D:\Program Files\SQLyog\SJASchemas\odbcimport-general.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\ODBC Import - With Triggers.lnk", in: "D:\Program Files\SQLyog\SJASchemas\odbcimport-withtrigger.xml ", icon: ,0, sw=0, hk=0
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SJA Schemas\ODBC Import - With Where Clause.lnk", in: "D:\Program Files\SQLyog\SJASchemas\odbcimport-withwhere.xml ", icon: ,0, sw=0, hk=0
+CreateDirectory: "D:\Program Files\SQLyog" (1)
+File: overwriteflag=0, allowskipfilesflag=2, name="SQLyog.chm"
+File: wrote 4708978 to "D:\Program Files\SQLyog\SQLyog.chm"
+CreateShortCut: out: "C:\Documents and Settings\bikasm9may07\Start Menu\Programs\SQLyog\SQLyog Help.lnk", in: "D:\Program Files\SQLyog\SQLyog.chm ", icon: ,0, sw=0, hk=0
+Section: ""
+created uninstaller: 1184, "D:\Program Files\SQLyog\uninst.exe"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\SQLyog.exe" ""="D:\Program Files\SQLyog\SQLyog.exe"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "DisplayName"="SQLyog 5.19"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "UninstallString"="D:\Program Files\SQLyog\uninst.exe"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "DisplayIcon"="D:\Program Files\SQLyog\SQLyog.exe"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "DisplayVersion"="5.19"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "URLInfoAbout"="http://www.webyog.com"
+WriteRegStr: "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\SQLyog" "Publisher"="Webyog Softworks Pvt. Ltd."
+Jump: 90
+WriteINIStr: wrote [Settings] NextButtonText=&Finish in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Settings] CancelEnabled=1 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 2] Bottom=38 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 3] Top=45 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 2] Text=Completing the SQLyog 5.19 Setup Wizard in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 3] Bottom=85 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 3] Text=SQLyog 5.19 has been installed on your computer.\r\n\r\nClick Finish to close this wizard. in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Type=CheckBox in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Text=&Run SQLyog 5.19 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Left=120 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Right=315 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Top=90 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] Bottom=100 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Field 4] State=1 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+WriteINIStr: wrote [Settings] Numfields=4 in C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini
+Call: 292
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\InstallOptions.dll"
+File: skipped: "C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\InstallOptions.dll" (overwriteflag=1)
+Call: 292
+File: overwriteflag=1, allowskipfilesflag=0, name="C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\InstallOptions.dll"
+File: skipped: "C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\InstallOptions.dll" (overwriteflag=1)
+Exec: command=""D:\Program Files\SQLyog\SQLyog.exe""
+Exec: success (""D:\Program Files\SQLyog\SQLyog.exe"")
+Delete: DeleteFile("C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\GetVersion.dll")
+Delete: DeleteFile("C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\InstallOptions.dll")
+Delete: DeleteFile("C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\ioSpecial.ini")
+Delete: DeleteFile("C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\modern-wizard.bmp")
+RMDir: RemoveDirectory("C:\DOCUME~1\BIKASM~1\LOCALS~1\Temp\nsv26.tmp\")
