@@ -128,6 +128,10 @@
 			background-size: cover;
 			-o-background-size: cover;
 		}
+		
+		.modal-lg {
+			width: 1050px;
+		}
 	</style>
 </head>
 
@@ -209,31 +213,6 @@
 					<div id="parkingLotDivId" style="background:transparent; background-color:rgba(0, 0, 0, 0.5); height:500px; text-align:center; padding-top:15px;color:white !important;">
 						<h3>Confirm Ticket Summary</h3>	
 
-						<div class="ticket" style="color:#000000; display:none" id="printdiv">
-							
-							<div class="col-md-12" style="color:#0D2975; padding-top:70px; font-size:x-large; font-weight:bold">The Hackosaurus e-Ticket</div>
-							<div class="col-md-6"></div>
-							<div class="col-md-6">
-								<table class="table" style="margin-top:20px;text-align:left;width:90%">
-									<tbody>
-										<tr>
-											<td>Name</td>
-											<td>Argha Basu</td>
-										</tr>
-										<tr>
-											<td>Ticket No. </td>
-											<td>S1, S2, S3, S4, S5</td>
-										</tr>
-										<tr>
-											<td>Block </td>
-											<td>A-Stand</td>
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-							
-						</div>
 						
 						<div class="col-md-12">
 							<table class="table table-condensed">
@@ -268,15 +247,57 @@
 							</table>
 						
 						</div>
-						
-						<button id="printBtnId" type="button" class="btn btn-default" style="float:right; margin-right:20px;">Print e-Ticket</button>						
+
+						<button data-toggle="modal" data-target="#myModal" id="printBtnViewId" type="button" class="btn btn-default" style="float:right; margin-right:20px;">Print e-Ticket</button>						
 					</div>
 				</div>	
 			</div>	
 		</div>	
 	</section>
 
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">e-Ticket</h4>
+      </div>
+      <div class="modal-body">
+		<div class="ticket" style="color:#000000;" id="printdiv">
+        <div class="col-md-12" style="color:#0D2975; padding-top:70px; font-size:x-large; font-weight:bold">The Hackosaurus e-Ticket</div>
+		<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<table class="table" style="margin-top:20px;text-align:left;width:90%">
+				<tbody>
+					<tr>
+						<td>Ticket Reference No.</td>
+						<td>TKT/06/2014/12/198706</td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td>Argha Basu</td>
+					</tr>
+					<tr>
+						<td>Ticket No. </td>
+						<td>S1, S2, S3, S4, S5</td>
+					</tr>
+					<tr>
+						<td>Block </td>
+						<td>A-Stand</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="printBtnId">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
     
 
     
@@ -299,7 +320,7 @@
 		$(document).ready(function() { 
 		
 			$('#printBtnId').click(function(){
-				printDiv('printdiv');
+				//printDiv('printdiv');
 			});
 			
 			function printDiv(divID) {
@@ -323,107 +344,36 @@
 
 
 			}
-			$('#bootstrapModalFullCalendar').fullCalendar({
-				header: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				defaultDate: '2014-11-12',
-				editable: true,
-				eventLimit: true, // allow "more" link when too many events
-				events: [
-					{
-						title: 'All Day Event',
-						start: '2014-11-01',
-						description: "Desc1"
-						
-					},
-					{
-						title: 'Long Event',
-						start: '2014-11-07',
-						end: '2014-11-10',
-						description: "Desc1"
-						
-					},
-					{
-						id: 999,
-						title: 'Repeating Event',
-						start: '2014-11-09T16:00:00',
-						description: "Desc1"
-					},
-					{
-						id: 999,
-						title: 'Repeating Event',
-						start: '2014-11-16T16:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Conference',
-						start: '2014-11-11',
-						end: '2014-11-13',
-						description: "Desc1"
-					},
-					{
-						title: 'Meeting',
-						start: '2014-11-12T10:30:00',
-						end: '2014-11-12T12:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Lunch',
-						start: '2014-11-12T12:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Meeting',
-						start: '2014-11-12T14:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Happy Hour',
-						start: '2014-11-12T17:30:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Dinner',
-						start: '2014-11-12T20:00:00',
-						description: "Desc1"
-					},
-					{
-						title: 'Birthday Party',
-						start: '2014-11-13T07:00:00',
-						description: "Desc1"
-					}
-				],	
-				eventClick:  function(event, jsEvent, view) {
-					$('#modalTitle').html(event.title);
-					$('#modalBody').html(event.description);
-					$('#eventUrl').attr('href',event.url);
-					$('#fullCalModal').modal();
+			
+			
+			function printElement(elem) { 
+				var domClone = elem.cloneNode(true);
+
+				var $printSection = document.getElementById("printdiv");
+
+				if (!$printSection) {
+					var $printSection = document.createElement("div");
+					$printSection.id = "printdiv";
+					document.body.appendChild($printSection);
 				}
-			});
+
+				$printSection.innerHTML = "";
+				$printSection.appendChild(domClone);
+				window.print();
+			}
+
+			document.getElementById("printBtnId").onclick = function () { 
+				
+				printElement(document.getElementById("printdiv"));				
+
+			}
 			//alert(parseInt($('#noOfTickets').text()));
 			//alert(((parseInt($('#noOfTickets').text()))*(parseInt($('#price').text()))).toFixed(2));
 			$('#totalPriceId').text(((parseInt($('#noOfTickets').text()))*(parseInt($('#price').text()))).toFixed(2));
 
 		});
 	</script>
-	<div id="fullCalModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-					<h4 id="modalTitle" class="modal-title"></h4>
-				</div>
-				<div id="modalBody" class="modal-body"></div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button class="btn btn-primary"><a id="eventUrl" target="_blank">Event Page</a></button>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </body>
 
 </html>
