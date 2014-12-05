@@ -1,0 +1,60 @@
+create table event(event_id varchar(20),
+event_name varchar(100),
+event_desc varchar(500),
+event_start_dt date,
+event_end_dt date,
+event_location varchar(20),
+PRIMARY KEY (event_id));
+
+CREATE TABLE LOCATION(LOCATION_ID VARCHAR(20),
+LOCATION_NAME VARCHAR(100),
+PARKING_AVAILABLE VARCHAR(1),
+PRIMARY KEY (LOCATION_ID));
+
+CREATE TABLE STADIUM(STADIUM_ID VARCHAR(20),
+STADIUM_NAME VARCHAR(100),
+STADIUM_LOCATION VARCHAR(20),
+PARKING_AVAILABLE VARCHAR(1),
+TOTAL_NO_OF_SEATS INT(50),
+TYPES_OF_SEATS VARCHAR(5),
+PRIMARY KEY (STADIUM_ID));
+
+CREATE TABLE MATCHES(MATCH_ID VARCHAR(20),
+MATCH_NAME VARCHAR(100),
+MATCH_DESC VARCHAR(500),
+EVENT_ID VARCHAR(20),
+MATCH_DT DATE,
+MATCH_TIME             varchar(10),
+MATCH_STATIUM VARCHAR(20),
+MATCH_LOCATION VARCHAR(20),
+MATCH_SEATS_AVAILABLE INT(50),
+PRIMARY KEY (MATCH_ID));
+
+DROP TABLE MATCHES;
+
+insert into `event` (`event_id`,`event_name`,`event_desc`,`event_start_dt`,`event_end_dt`,`event_location`) values 
+( '001','ISL','ISL','12-10-2014','31-12-2014','INDIA')
+update `event` set `event_id`='001',`event_name`='ISL',`event_desc`='ISL',`event_start_dt`='12-10-2014',`event_end_dt`='31-12-2014',`event_location`='000' where `event_id`='001'
+
+
+
+
+insert into `matches` (`MATCH_ID`,`MATCH_NAME`,`MATCH_DESC`,`EVENT_ID`,`MATCH_DT`,`MATCH_TIME`,`MATCH_STATIUM`,`MATCH_LOCATION`,`MATCH_SEATS_AVAILABLE`) values 
+( 'ISL006','MFC-VS-fcpc','Mumbai City FC 5 - 0  FC Pune City','ISL','2014-10-18','19:00IST',
+'D.Y. Patil Stadium, Navi Mumbai','Navi Mumbai','2000');
+
+insert into `matches` (`MATCH_ID`,`MATCH_NAME`,`MATCH_DESC`,`EVENT_ID`,`MATCH_DT`,`MATCH_TIME`,`MATCH_STATIUM`,`MATCH_LOCATION`,`MATCH_SEATS_AVAILABLE`) values 
+( 'ISL007','at-VS-DDFC','Atlético de Kolkata 1 - 1  Delhi Dynamos FC','ISL','2014-10-19','19:00IST',
+'Salt Lake Stadium, Kolkata','Kolkata','2000');
+
+insert into `matches` (`MATCH_ID`,`MATCH_NAME`,`MATCH_DESC`,`EVENT_ID`,`MATCH_DT`,`MATCH_TIME`,`MATCH_STATIUM`,`MATCH_LOCATION`,`MATCH_SEATS_AVAILABLE`) values 
+( 'ISL008','NUFC-VS-FCG','NorthEast United FC 1 - 1  FC Goa','ISL','2014-10-19','16:30IST',
+'Indira Gandhi Stadium, Guwahati','Guwahati','2000');
+
+insert into `matches` (`MATCH_ID`,`MATCH_NAME`,`MATCH_DESC`,`EVENT_ID`,`MATCH_DT`,`MATCH_TIME`,`MATCH_STATIUM`,`MATCH_LOCATION`,`MATCH_SEATS_AVAILABLE`) values 
+( 'ISL009','CFC-VS-KBFC','Chennaiyin FC 2 - 1  Kerala Blasters FC','ISL','2014-10-21','19:00IST',
+'Jawaharlal Nehru Stadium, Chennai','Chennai','5000');
+
+insert into `matches` (`MATCH_ID`,`MATCH_NAME`,`MATCH_DESC`,`EVENT_ID`,`MATCH_DT`,`MATCH_TIME`,`MATCH_STATIUM`,`MATCH_LOCATION`,`MATCH_SEATS_AVAILABLE`) values 
+( 'ISL0010','FCG-VS-AT','FC Goa 1 - 2  Atlético de Kolkata','ISL','2014-10-23','19:00IST',
+'Jawaharlal Nehru Stadium, Fatorda, Goa','Goa','5000');
