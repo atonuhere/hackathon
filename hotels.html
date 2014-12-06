@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Colosseum - Team Hackosaurus</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fullcalendar.css" rel="stylesheet">
+    <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" >
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<!-- jQuery -->
+    <script src="js/moment.min.js"></script>
+	<script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+	<!-- Full Calendar JavaScript -->
+	<script src="js/fullcalendar.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		.container-top {
+			margin-top: 80px;
+		}
+		.transparent {
+			border-width: 0px;
+			-webkit-box-shadow: 0px 0px;
+			box-shadow: 0px 0px;
+			background-color: rgba(0,0,0,0.0);
+			background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+			background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+			background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+			background:transparent;
+			margin-top:75px;
+		}
+		
+				
+		.content {
+			float: left;
+			font-size: 11px;
+			margin: 5px;
+			padding: 5px;
+		}
+
+		.utility {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: red;
+			border-radius: 5px;
+			clear: left;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: auto;
+			margin: 5px;
+			padding: 5px;
+			width: 80px;
+		}
+
+		.box_occupied {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: #FF0505;
+			border-radius: 5px;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: 50px;
+			margin: 5px;
+			padding: 5px;
+			width: 150px;
+		}
+		
+		td {
+			margin: 0 0 25px;
+			text-transform: uppercase;
+			font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-weight: 300;
+			letter-spacing: 1px;
+			height:30px;
+			font-weight:bold;
+		}
+		
+		.box_available {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: #1BF507;
+			border-radius: 5px;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: 50px;
+			margin: 5px;
+			padding: 5px;
+			width: 150px;
+		}
+		
+		.ticket{
+			display: table;
+			width: 1000px;
+			height: 500px;
+			text-align: center;
+			color: #fff;
+			background: url(./img/ticket.jpg) no-repeat bottom center scroll;
+			background-color: #000;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			background-size: cover;
+			-o-background-size: cover;
+		}
+		
+		.modal-lg {
+			width: 1050px;
+		}
+	</style>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <!--<nav class="navbar navbar-custom navbar-fixed-top transparent" role="navigation">-->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+        <div class="container">
+            <!--<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">Welcome To</span> 
+                </a>
+            </div>-->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				
+				<div class="btn-group" >
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Events & Tickets
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Games & Sports Info</a></li>
+					<li><a tabindex="-1" href="#">Schedule Info</a></li>
+					<li><a tabindex="-1" href="#">Book Tickets</a></li>
+				</ul>
+				</div>
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Direction & Parking
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Find Direction</a></li>
+					<li><a tabindex="-1" href="#">Parking Lot Booking</a></li>
+				</ul>
+				</div>				
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Shop
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Food & Beverages</a></li>
+					<li><a tabindex="-1" href="#">Merchandise</a></li>
+				</ul>
+				</div>
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Gallery
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Videos</a></li>
+					<li><a tabindex="-1" href="#">Photos</a></li>
+				</ul>
+				</div>
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Hospitality & Travel Services
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Our Hotel Partners</a></li>
+					<li><a tabindex="-1" href="#">Our Transport Partners</a></li>
+				</ul>
+				</div>
+				
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+	
+    <section class="intro1">
+		<div class="intro-body1">
+			<div class="container">
+				<div class="well well-small transparent">
+					<div id="parkingLotDivId" style="width:100% !important; background:transparent; background-color:rgba(0, 0, 0, 0.5); height:500px; text-align:center; padding-top:15px;color:white !important;">
+						<h3>Our Hotel Partners</h3>	
+
+						
+						<div class="col-md-12">
+							<table class="table table-bordered" style="width:98%; font-size:x-small">
+								<thead>
+									<tr>
+										<td>#</td>
+										<td>Name</td>
+										<td>Phone & Address</td>
+										<td>Website</td>
+										<td>Booking Link</td>										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Hotel Novotel Kolkata Hotel and Residences</td>
+										<td> 
+											CF 11 Action Area 1C
+											New Town Rajarhat
+											700156 KOLKATA, INDIA
+											Tel (+91)33/40323333
+											Fax (+91)33/40323334
+											E-mail H6937-re@accor.com
+											Hotel Manager : Mr Jai KISHAN 
+										</td>
+										<td style="cursor:pointer; text-decoration:underline">http://www.novotel.com</td>
+										<td style="cursor:pointer; text-decoration:underline">http://www.novotel.com/gb/booking/room-dates.shtml</td>
+									</tr>
+									
+									<tr>
+										<td>2</td>
+										<td>Hyatt Regency Kolkata</td>
+										<td> 										
+											Hyatt Regency Kolkata
+											JA-1 Sector III, Salt Lake City
+											Kolkata,  India, 700 098
+											Tel: +91 33 2335 1234
+											Fax: +91 33 2335 1235
+											Email: kolkata.regency@hyatt.com
+										</td>
+										<td style="cursor:pointer; text-decoration:underline">http://kolkata.regency.hyatt.com/en/hotel/home.html</td>
+										<td style="cursor:pointer; text-decoration:underline">http://kolkata.regency.hyatt.com/en/hotel/rooms.html</td>
+									</tr>
+									
+									<tr>
+										<td>3</td>
+										<td>ITC Sonar, Kolkata</td>
+										<td> 																					
+											ITC Sonar, Kolkata
+											JBS Haldane Avenue (Opp Science City), 
+											Kolkata, West Bengal , 700 046 India
+											Tel : (91) (33) 23454545
+											Fax : (91) (33) 23454455
+											Email : reservations.itcsonar@itchotels.in
+										</td>
+										<td style="cursor:pointer; text-decoration:underline">http://www.itchotels.in/hotels/itcsonar.aspx</td>
+										<td style="cursor:pointer; text-decoration:underline">https://www.itchotels.in/booking/bookhotels.aspx</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						
+						</div>
+
+						
+					</div>
+				</div>	
+			</div>	
+		</div>	
+	</section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">e-Ticket</h4>
+      </div>
+      <div class="modal-body">
+		<div class="ticket" style="color:#000000;" id="printdiv">
+        <div class="col-md-12" style="color:#0D2975; padding-top:70px; font-size:x-large; font-weight:bold">The Hackosaurus e-Ticket</div>
+		<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<table class="table" style="margin-top:20px;text-align:left;width:90%">
+				<tbody>
+					<tr>
+						<td>Ticket Reference No.</td>
+						<td>TKT/06/2014/12/198706</td>
+					</tr>
+					<tr>
+						<td>Name</td>
+						<td>Argha Basu</td>
+					</tr>
+					<tr>
+						<td>Ticket No. </td>
+						<td>S1, S2, S3, S4, S5</td>
+					</tr>
+					<tr>
+						<td>Block </td>
+						<td>A-Stand</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="printBtnId">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Tech Mahindra Ltd. 2014</p>
+        </div>
+    </footer>
+
+    
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+	<script>
+		$(document).ready(function() { 
+		
+			$('#printBtnId').click(function(){
+				//printDiv('printdiv');
+			});
+			
+			function printDiv(divID) {
+				//Get the HTML of div
+				var divElements = document.getElementById(divID).innerHTML;
+				//Get the HTML of whole page
+				var oldPage = document.body.innerHTML;
+
+				//Reset the page's HTML with div's HTML only
+				document.body.innerHTML = 
+				  "<html><head><title></title></head><body>" + 
+				  divElements + "</body>";
+
+				//Print Page
+				window.print();
+
+				//Restore orignal HTML
+				document.body.innerHTML = oldPage;
+				
+				return false;
+
+
+			}
+			
+			
+			function printElement(elem) { 
+				var domClone = elem.cloneNode(true);
+
+				var $printSection = document.getElementById("printdiv");
+
+				if (!$printSection) {
+					var $printSection = document.createElement("div");
+					$printSection.id = "printdiv";
+					document.body.appendChild($printSection);
+				}
+
+				$printSection.innerHTML = "";
+				$printSection.appendChild(domClone);
+				window.print();
+			}
+
+			document.getElementById("printBtnId").onclick = function () { 
+				
+				printElement(document.getElementById("printdiv"));				
+
+			}
+			//alert(parseInt($('#noOfTickets').text()));
+			//alert(((parseInt($('#noOfTickets').text()))*(parseInt($('#price').text()))).toFixed(2));
+			$('#totalPriceId').text(((parseInt($('#noOfTickets').text()))*(parseInt($('#price').text()))).toFixed(2));
+
+		});
+	</script>
+	
+</body>
+
+</html>
