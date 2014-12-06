@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Colosseum - Team Hackosaurus</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fullcalendar.css" rel="stylesheet">
+    <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" >
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<!-- jQuery -->
+    <script src="js/moment.min.js"></script>
+	<script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+	<!-- Full Calendar JavaScript -->
+	<script src="js/fullcalendar.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		.container-top {
+			margin-top: 80px;
+		}
+		.transparent {
+			border-width: 0px;
+			-webkit-box-shadow: 0px 0px;
+			box-shadow: 0px 0px;
+			background-color: rgba(0,0,0,0.0);
+			background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+			background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+			background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+			background:transparent;
+			margin-top:75px;
+		}
+		
+		td {
+			margin: 0 0 25px;
+			text-transform: uppercase;
+			font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-weight: 300;
+			letter-spacing: 1px;
+			width:50%;
+			height:30px;
+		}
+		
+		.content {
+			float: left;
+			font-size: 11px;
+			margin: 5px;
+			padding: 5px;
+		}
+
+		.utility {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: red;
+			border-radius: 5px;
+			clear: left;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: auto;
+			margin: 5px;
+			padding: 5px;
+			width: 80px;
+		}
+
+		.box_occupied {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: #FF0505;
+			border-radius: 5px;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: 50px;
+			margin: 5px;
+			padding: 5px;
+			width: 150px;
+		}
+		
+		.box_available {
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			background: #1BF507;
+			border-radius: 5px;
+			cursor:pointer;
+			float: left;
+			font-size: 11px;
+			height: 50px;
+			margin: 5px;
+			padding: 5px;
+			width: 150px;
+		}
+	</style>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <!--<nav class="navbar navbar-custom navbar-fixed-top transparent" role="navigation">-->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+        <div class="container">
+            <!--<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">Welcome To</span> 
+                </a>
+            </div>-->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				
+				<div class="btn-group" >
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Events & Tickets
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Games & Sports Info</a></li>
+					<li><a tabindex="-1" href="#">Schedule Info</a></li>
+					<li><a tabindex="-1" href="#">Book Tickets</a></li>
+				</ul>
+				</div>
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Direction & Parking
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Find Direction</a></li>
+					<li><a tabindex="-1" href="#">Parking Lot Booking</a></li>
+				</ul>
+				</div>
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Food & Beverages
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Cold Drinks</a></li>
+					<li><a tabindex="-1" href="#">Snacks</a></li>
+				</ul>
+				</div>
+				
+				<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				Merchandise
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Games & Sports Info</a></li>
+					<li><a tabindex="-1" href="#">Schedule Info</a></li>
+					<li><a tabindex="-1" href="#">Book Tickets</a></li>
+				</ul>
+				</div>
+				
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+	
+    <section class="intro1">
+		<div class="intro-body1">
+			<div class="container">
+				<div class="well well-small transparent">
+					<div id="parkingLotDivId" style="background:transparent; background-color:rgba(0, 0, 0, 0.5); height:500px; text-align:center; padding-top:15px;color:white !important;">
+						<h3>IMAGE GALLERY</h3>
+						
+						<div class="col-md-12" style="align=center">
+						
+						<div id="myCarousel" class="carousel slide">
+						  <!-- Dot Indicators -->
+						  <ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+							<li data-target="#myCarousel" data-slide-to="3"></li>
+							<li data-target="#myCarousel" data-slide-to="4"></li>
+						  </ol>
+						  <!-- Items -->
+						  <div class="carousel-inner">
+							<div class="active item"><img src="./img/stadium_img1.jpg" alt="" style="width:100%; height:500px;"/></div>
+							<div class="item"><img src="./img/stadium_img2.jpg" alt="" style="width:100%; height:500px;"/></div>
+							<div class="item"><img src="./img/stadium_img3.jpg" alt="" style="width:100%; height:500px;"/></div>
+							<div class="item"><img src="./img/stadium_img4.jpg" alt="" style="width:100%; height:500px;"/></div>
+							<div class="item"><img src="./img/stadium_img5.jpg" alt="" style="width:100%; height:500px;"/></div>
+							
+						  </div>
+						  <!-- Navigation -->
+						  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+						</div>
+
+						</div>
+						
+
+					</div>
+				</div>	
+			</div>	
+		</div>	
+	</section>
+
+
+    
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Tech Mahindra Ltd. 2014</p>
+        </div>
+    </footer>
+
+    
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+	<script>
+		$(document).ready(function() { 
+			$('#bootstrapModalFullCalendar').fullCalendar({
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,agendaWeek,agendaDay'
+				},
+				defaultDate: '2014-11-12',
+				editable: true,
+				eventLimit: true, // allow "more" link when too many events
+				events: [
+					{
+						title: 'All Day Event',
+						start: '2014-11-01',
+						description: "Desc1"
+						
+					},
+					{
+						title: 'Long Event',
+						start: '2014-11-07',
+						end: '2014-11-10',
+						description: "Desc1"
+						
+					},
+					{
+						id: 999,
+						title: 'Repeating Event',
+						start: '2014-11-09T16:00:00',
+						description: "Desc1"
+					},
+					{
+						id: 999,
+						title: 'Repeating Event',
+						start: '2014-11-16T16:00:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Conference',
+						start: '2014-11-11',
+						end: '2014-11-13',
+						description: "Desc1"
+					},
+					{
+						title: 'Meeting',
+						start: '2014-11-12T10:30:00',
+						end: '2014-11-12T12:30:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Lunch',
+						start: '2014-11-12T12:00:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Meeting',
+						start: '2014-11-12T14:30:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Happy Hour',
+						start: '2014-11-12T17:30:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Dinner',
+						start: '2014-11-12T20:00:00',
+						description: "Desc1"
+					},
+					{
+						title: 'Birthday Party',
+						start: '2014-11-13T07:00:00',
+						description: "Desc1"
+					}
+				],	
+				eventClick:  function(event, jsEvent, view) {
+					$('#modalTitle').html(event.title);
+					$('#modalBody').html(event.description);
+					$('#eventUrl').attr('href',event.url);
+					$('#fullCalModal').modal();
+				}
+			});
+		});
+	</script>
+	
+</body>
+
+</html>
